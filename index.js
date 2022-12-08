@@ -82,7 +82,8 @@ function dingTalkRobot(item) {
     },
     data: postData,
   };
-  const isExist = keywords.split(',').some((keyword) => {
+  const arr = keywords.split(',')
+  const isExist = arr.some((keyword) => {
     return item.title.includes(keyword);
   });
   if (!isExist) {
