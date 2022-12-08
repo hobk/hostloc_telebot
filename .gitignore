@@ -1,3 +1,7 @@
 /node_modules
 .env
 .git
+.logpm2
+.log
+data.json
+list.json
