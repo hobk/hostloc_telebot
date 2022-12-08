@@ -74,7 +74,7 @@ function dingTalkRobot(item) {
   });
   const options = {
     hostname: 'oapi.dingtalk.com',
-    path: '/robot/send?access_token=' + dingTalkBotToken + '',
+    path: '/robot/send?access_token=' + dingTalkBotToken,
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
