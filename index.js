@@ -31,12 +31,12 @@ function getThreadList() {
         const $item = $(item);
         const $title = $item.find('.s.xst');
         const $url = 'https://hostloc.com/' + $item.find('.icn a').attr('href');
-        const $by = $item.find('.by');
-        const $author = $by.find('a');
+        const $by = $item.find('.by') || $item.find('.by em');
+        const $author = $by.find('a') || $by.find('cite') || $by.find('em') || $by.find('span');
         result.push({
           title: $title.text(),
           url: $url,
-          by: $author.text(),
+          by: $author.text() || '匿名',
         });
       });
       listHandler(result);
@@ -86,7 +86,7 @@ function dingTalkRobot(item) {
   const isExist = arr.some((keyword) => {
     return item.title.includes(keyword);
   });
-  if (!isExist) {
+  if ((!isExist && keywords !== '') || !dingTalkBotToken) {
     return;
   }
   https.request(options, (res) => {
@@ -111,6 +111,6 @@ function getRandomIp() {
 function main() {
   setInterval(() => {
     getThreadList();
-  }, timeout);
+  }, timeout || 1000 * 5);
 }
 main()

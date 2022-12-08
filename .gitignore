@@ -1,7 +1,11 @@
 /node_modules
+/logs
+/config
 .env
 .git
-.logpm2
+logpm2
 .log
+log
+logs
 data.json
 list.json
